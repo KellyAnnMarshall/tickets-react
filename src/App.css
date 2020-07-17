@@ -1,0 +1,125 @@
+html,
+body {
+  height: 100%;
+  background: #1fb0c4;
+  background: radial-gradient(ellipse at center, #1fb0c4 57%, #037275 99%);
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: #86d1da;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  height: 100%;
+}
+
+.board {
+  width: 100%;
+  text-align: center;
+}
+
+.small {
+  max-width: 400px;
+}
+
+.large{
+  max-width: 500px;
+}
+
+.ticket {
+  margin: 2px 10px;
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
+
+.ticket:nth-child(even) {
+transform: rotate(-3deg);
+}
+
+.ticket:nth-child(odd) {
+transform: rotate(3deg);
+}
+
+div.ticket img {
+max-width: 100%;
+}
+
+dt, dd {
+  float: left
+}
+
+dt {
+font-weight: bold;
+display: block;
+width: 20px;
+clear: both;
+color: #daf5f8;
+}
+
+.search-container {
+ display: block; 
+ padding: 20px;
+ position: relative;
+ margin-bottom: 20px;
+ background: rgba(0,0,0,0.4);
+ box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ position: relative;
+ display: flex;
+ flex-wrap: nowrap;
+ justify-content: flex-end;
+}
+
+.search-container input {
+  border: none;
+  color: rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.5);
+  position: relative;
+  padding: 14px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.search-container input::placeholder {
+  color: rgba(0,0,0,0.5);
+}
+
+.clear-button {
+  appearance: none;
+  background: none;
+  border: none;
+  position: relative;
+  text-indent: -99999px;
+  height: 40px;
+  width: 40px;
+  opacity: 0.3;
+}
+.clear-button:hover {
+  opacity: 1;
+}
+.clear-button:before, .clear-button:after {
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #fff;
+}
+.clear-button:before {
+  transform: rotate(45deg);
+}
+.clear-button:after {
+  transform: rotate(-45deg);
+}
+
+.clear-button:focus,
+.clear-button:active {
+  outline: none
+}
+
+
