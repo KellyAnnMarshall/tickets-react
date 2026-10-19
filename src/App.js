@@ -8,36 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tickets: [],
+      tickets: ticketData.tickets.map((ticket, id) => ({ id, ticket })),
       queryText: ''
     }
-    this.eachTicket = this.eachTicket.bind(this)
-    this.add = this.add.bind(this)
     this.searchTickets = this.searchTickets.bind(this)
     this.resetTickets = this.resetTickets.bind(this)
-    this.nextId = this.nextId.bind(this)
-  }
-
-  add(ticket) {
-    this.setState(prevState => ({
-      tickets: [
-        ...prevState.tickets,
-        {
-          id: this.nextId(),
-          ticket: ticket
-        }
-      ]
-    }))
-  }
-
-  componentWillMount() {
-    var self = this
-    ticketData.tickets.forEach(ticket => self.add(ticket))
-  }
-
-  nextId() {
-    this.uniqueId = this.uniqueId || 0
-    return this.uniqueId++
   }
 
   searchTickets(query) {
@@ -52,7 +27,7 @@ class App extends Component {
     })
   }
 
-  eachTicket(ticket, i) {
+  eachTicket(ticket) {
     return (
       <Ticket key={ticket.id}
         index={ticket.id}>
@@ -62,7 +37,7 @@ class App extends Component {
   }
   render() {
     var filteredTickets = []
-    var queryText = this.state.queryText
+    var queryText = this.state.queryText.toLowerCase()
 
     this.state.tickets.forEach(function (item) {
       if (
